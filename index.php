@@ -10,7 +10,7 @@
 
         <?php include 'partials/navbar.html'; ?>
 
-        <?php include 'partials/sidebar.html'; ?>
+        <?php include 'partials/sidebar.php'; ?>
 
         <!-- Main Content -->
         <div class="main-content">

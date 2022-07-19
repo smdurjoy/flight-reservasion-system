@@ -12,7 +12,7 @@
         <?php require_once 'backend/connection.php'; ?>
         <?php include 'partials/navbar.html'; ?>
 
-        <?php include 'partials/sidebar.html'; ?>
+        <?php include 'partials/sidebar.php'; ?>
 
         <div class="main-content">
             <section class="section">

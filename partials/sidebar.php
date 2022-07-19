@@ -7,20 +7,20 @@
             </a>
         </div>
         <ul class="sidebar-menu">
-            <li class="menu-header">INFO</li>
-            <li class="dropdown">
-                <a href="index.html" class="nav-link"><i data-feather="monitor"></i><span>Dashboard</span></a>
+            <?php $activePage = basename($_SERVER['PHP_SELF'], ".php"); ?>
+            <li class="dropdown <?= ($activePage == 'index') ? 'active':''; ?>">
+                <a href="index.php" class="nav-link"><i data-feather="monitor"></i><span>Dashboard</span></a>
             </li>
-            <li class="dropdown">
+            <li class="dropdown <?= ($activePage == 'aircraft') ? 'active':''; ?>">
 <!--                1-->
                 <a href="aircraft.php" class="nav-link"><i data-feather="monitor"></i><span>Aircraft</span></a>
             </li>
-            <li class="dropdown">
+            <li class="dropdown <?= ($activePage == 'flightList') ? 'active':''; ?>">
                 <a href="#" class="menu-toggle nav-link has-dropdown"><i data-feather="copy"></i>
                     <span>Flight</span></a>
                 <ul class="dropdown-menu">
 <!--                    2-->
-                    <li><a class="nav-link" href="flightList.html">Flight List State Wise</a></li>
+                    <li class="<?= ($activePage == 'flightList') ? 'active':''; ?>"><a class="nav-link" href="flightList.php">Flight List Route Wise</a></li>
 <!--                    3-->
                     <li><a class="nav-link" href="flightPassengers.html">Flight Passengers</a></li>
 <!--                    5-->
