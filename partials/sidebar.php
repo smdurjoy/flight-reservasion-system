@@ -42,7 +42,7 @@
             <?php
             $activeTicketsDropdown = false;
 
-            if ($activePage == 'ticketsInfo' || $activePage == 'dateWiseTickets' || $activePage = 'stateWiseTickets') {
+            if ($activePage == 'ticketsInfo' || $activePage == 'dateWiseTickets' || $activePage == 'stateWiseTickets') {
                 $activeTicketsDropdown = true;
             }
             ?>
@@ -63,12 +63,22 @@
                     <li><a class="nav-link" href="stateWiseTickets.php">State Wise Tickets</a></li>
                 </ul>
             </li>
-            <li class="dropdown">
-                <a href="#" class="menu-toggle nav-link has-dropdown"><i data-feather="copy"></i>
-                    <span>Travelling</span></a>
+
+            <?php
+            $activePassengersDropdown = false;
+            if ($activePage == 'routeWisePassengers') {
+                $activePassengersDropdown = true;
+            }
+            ?>
+            <li class="dropdown <?= $activePassengersDropdown ? 'active' : ''; ?>">
+                <a href="#" class="menu-toggle nav-link has-dropdown"><i class="fa fa-user-circle"></i>
+                    <span>Passengers</span></a>
                 <ul class="dropdown-menu">
-                    <!--                    7-->
-                    <li><a class="nav-link" href="ticketsInfo.html">Airport Wise</a></li>
+                    <li class="<?= ($activePage == 'routeWisePassengers') ? 'active' : ''; ?>">
+                        <a class="nav-link" href="routeWisePassengers.php">
+                            Route Wise
+                        </a>
+                    </li>
                     <!--                    8-->
                     <li><a class="nav-link" href="badge.html">Reached Wise</a></li>
                     <!--                    9-->
