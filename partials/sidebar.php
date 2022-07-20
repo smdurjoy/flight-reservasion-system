@@ -17,7 +17,7 @@
             <?php
             $activeFlightDropdown = false;
 
-            if ($activePage == 'flightList' || $activePage == 'flightPassengers' || $activePage = 'totalFare') {
+            if ($activePage == 'flightList' || $activePage == 'flightPassengers' || $activePage == 'totalFare') {
                 $activeFlightDropdown = true;
             }
             ?>
@@ -26,8 +26,8 @@
                     <span>Flight</span></a>
                 <ul class="dropdown-menu">
                     <li class="<?= ($activePage == 'flightList') ? 'active' : ''; ?>">
-                        <a class="nav-link" href="flightList.php">Flight
-                            List Route Wise
+                        <a class="nav-link" href="flightList.php">
+                            Flight List Route Wise
                         </a>
                     </li>
                     <li class="<?= ($activePage == 'flightPassengers') ? 'active' : ''; ?>">
@@ -38,15 +38,29 @@
                     <li><a class="nav-link" href="totalFare.php">Total Fare</a></li>
                 </ul>
             </li>
-            <li class="dropdown">
+
+            <?php
+            $activeTicketsDropdown = false;
+
+            if ($activePage == 'ticketsInfo' || $activePage == 'dateWiseTickets' || $activePage = 'stateWiseTickets') {
+                $activeTicketsDropdown = true;
+            }
+            ?>
+            <li class="dropdown <?= $activeTicketsDropdown ? 'active' : ''; ?>">
                 <a href="#" class="menu-toggle nav-link has-dropdown"><i data-feather="copy"></i>
                     <span>Tickets</span></a>
                 <ul class="dropdown-menu">
-                    <li><a class="nav-link" href="ticketsInfo.html">Tickets Info</a></li>
-                    <!--                    6-->
-                    <li><a class="nav-link" href="badge.html">Date Wise Tickets</a></li>
-                    <!--                    10-->
-                    <li><a class="nav-link" href="badge.html">State Wise Tickets</a></li>
+                    <li class="<?= ($activePage == 'ticketsInfo') ? 'active' : ''; ?>">
+                        <a class="nav-link" href="ticketsInfo.html">
+                            Tickets Info
+                        </a>
+                    </li>
+                    <li class="<?= ($activePage == 'dateWiseTickets') ? 'active' : ''; ?>">
+                        <a class="nav-link" href="dateWiseTickets.php">
+                            Date Wise Tickets
+                        </a>
+                    </li>
+                    <li><a class="nav-link" href="stateWiseTickets.php">State Wise Tickets</a></li>
                 </ul>
             </li>
             <li class="dropdown">
