@@ -4,11 +4,12 @@ include 'connection.php';
 
 $routeId = $_GET['routeId'];
 
-$airFareSql = "SELECT flight_schedules.aircraft_id, flight_date, departure, arrival, fare, airfare_id, type, route_id 
-                FROM flight_schedules, airfares, aircrafts
-                WHERE flight_schedules.aircraft_id = aircrafts.id
-                AND airfares.id = flight_schedules.airfare_id AND airfares.route_id = '$routeId'";
-$result = mysqli_query($conn, $airFareSql);
+$sql = "SELECT flight_schedules.aircraft_id, flight_date, departure, arrival, fare, airfare_id, type, route_id 
+        FROM flight_schedules, airfares, aircrafts
+        WHERE flight_schedules.aircraft_id = aircrafts.id
+        AND airfares.id = flight_schedules.airfare_id AND airfares.route_id = '$routeId'";
+
+$result = mysqli_query($conn, $sql);
 
 $return_arr = array();
 
