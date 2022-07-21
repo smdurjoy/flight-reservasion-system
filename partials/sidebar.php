@@ -17,7 +17,7 @@
             <?php
             $activeFlightDropdown = false;
 
-            if ($activePage == 'flightList' || $activePage == 'flightPassengers' || $activePage == 'totalFare') {
+            if ($activePage == 'flightList' || $activePage == 'flightListRouteWise') {
                 $activeFlightDropdown = true;
             }
             ?>
@@ -27,15 +27,14 @@
                 <ul class="dropdown-menu">
                     <li class="<?= ($activePage == 'flightList') ? 'active' : ''; ?>">
                         <a class="nav-link" href="flightList.php">
+                            Flight List
+                        </a>
+                    </li>
+                    <li class="<?= ($activePage == 'flightListRouteWise') ? 'active' : ''; ?>">
+                        <a class="nav-link" href="flightListRouteWise.php">
                             Flight List Route Wise
                         </a>
                     </li>
-                    <li class="<?= ($activePage == 'flightPassengers') ? 'active' : ''; ?>">
-                        <a class="nav-link" href="flightPassengers.php">
-                            Flight Passengers
-                        </a>
-                    </li>
-                    <li><a class="nav-link" href="totalFare.php">Total Fare</a></li>
                 </ul>
             </li>
 
@@ -50,11 +49,6 @@
                 <a href="#" class="menu-toggle nav-link has-dropdown"><i data-feather="copy"></i>
                     <span>Tickets</span></a>
                 <ul class="dropdown-menu">
-<!--                    <li class="--><?//= ($activePage == 'ticketsInfo') ? 'active' : ''; ?><!--">-->
-<!--                        <a class="nav-link" href="ticketsInfo.html">-->
-<!--                            Tickets Info-->
-<!--                        </a>-->
-<!--                    </li>-->
                     <li class="<?= ($activePage == 'dateWiseTickets') ? 'active' : ''; ?>">
                         <a class="nav-link" href="dateWiseTickets.php">
                             Date Wise Tickets
@@ -70,7 +64,7 @@
 
             <?php
             $activePassengersDropdown = false;
-            if ($activePage == 'routeWisePassengers') {
+            if ($activePage == 'routeWisePassengers' || $activePage == 'stateWisePassengers' || $activePage == 'flightPassengers') {
                 $activePassengersDropdown = true;
             }
             ?>
@@ -83,10 +77,16 @@
                             Route Wise
                         </a>
                     </li>
-                    <!--                    8-->
-                    <li><a class="nav-link" href="badge.html">Reached Wise</a></li>
-                    <!--                    9-->
-                    <li><a class="nav-link" href="badge.html">States Wise</a></li>
+                    <li class="<?= ($activePage == 'stateWisePassengers') ? 'active' : ''; ?>">
+                        <a class="nav-link" href="stateWisePassengers.php">
+                            State Wise
+                        </a>
+                    </li>
+                    <li class="<?= ($activePage == 'flightPassengers') ? 'active' : ''; ?>">
+                        <a class="nav-link" href="flightPassengers.php">
+                            Flight Wise
+                        </a>
+                    </li>
                 </ul>
             </li>
         </ul>

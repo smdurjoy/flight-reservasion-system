@@ -92,7 +92,7 @@
         const routeId = $('#route').val();
         $.ajax({
             method: 'GET',
-            url: 'backend/flightFilter.php',
+            url: 'backend/routeWiseFlightFilter.php',
             data: {routeId},
             success: function (res) {
                 $("#flightListTable").removeClass('d-none');
