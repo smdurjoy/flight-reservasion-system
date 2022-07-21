@@ -8,6 +8,7 @@
 <div id="app">
     <div class="main-wrapper main-wrapper-1">
 
+        <?php require_once 'backend/connection.php'; ?>
         <?php include 'partials/navbar.html'; ?>
 
         <?php include 'partials/sidebar.php'; ?>
@@ -15,7 +16,31 @@
         <!-- Main Content -->
         <div class="main-content">
             <section class="section">
-                <div class="row ">
+                <div class="row">
+                    <?php
+
+                    $sql = "SELECT COUNT(id) as total_aircraft FROM aircrafts";
+                    $result = mysqli_query($conn, $sql);
+                    $row = mysqli_fetch_array($result, MYSQLI_ASSOC);
+                    $total_aircrafts = $row['total_aircraft'];
+
+                    $passengersSql = "SELECT COUNT(id) as total_passengers FROM passengers";
+                    $result = mysqli_query($conn, $passengersSql);
+                    $row = mysqli_fetch_array($result, MYSQLI_ASSOC);
+                    $total_passengers = $row['total_passengers'];
+
+                    $sqlTransactions = "SELECT COUNT(id) as total_transactions FROM transactions";
+                    $result = mysqli_query($conn, $sqlTransactions);
+                    $row = mysqli_fetch_array($result, MYSQLI_ASSOC);
+                    $total_transactions = $row['total_transactions'];
+
+                    $sqlAirfares = "SELECT COUNT(id) as total_airfares FROM airfares";
+                    $result = mysqli_query($conn, $sqlAirfares);
+                    $row = mysqli_fetch_array($result, MYSQLI_ASSOC);
+                    $total_airfares = $row['total_airfares'];
+
+                    $conn->close();
+                    ?>
                     <div class="col-xl-3 col-lg-6 col-md-6 col-sm-6 col-xs-12">
                         <div class="card">
                             <div class="card-statistic-4">
@@ -23,8 +48,8 @@
                                     <div class="row ">
                                         <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 pr-0 pt-3">
                                             <div class="card-content">
-                                                <h5 class="font-15">Total Aircraft</h5>
-                                                <h2 class="mb-3 font-18">258</h2>
+                                                <h5 class="font-15">Total Passengers</h5>
+                                                <h2 class="mb-3 font-18"><?php echo $total_passengers; ?></h2>
                                                 <p class="mb-0"><span class="col-green">10%</span> Increase</p>
                                             </div>
                                         </div>
@@ -46,7 +71,7 @@
                                         <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 pr-0 pt-3">
                                             <div class="card-content">
                                                 <h5 class="font-15"> Total Flights</h5>
-                                                <h2 class="mb-3 font-18">1,287</h2>
+                                                <h2 class="mb-3 font-18"><?php echo $total_aircrafts; ?></h2>
                                                 <p class="mb-0"><span class="col-orange">09%</span> Decrease</p>
                                             </div>
                                         </div>
@@ -68,7 +93,7 @@
                                         <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 pr-0 pt-3">
                                             <div class="card-content">
                                                 <h5 class="font-15">Total Tickets</h5>
-                                                <h2 class="mb-3 font-18">128</h2>
+                                                <h2 class="mb-3 font-18"><?php echo $total_transactions; ?></h2>
                                                 <p class="mb-0"><span class="col-green">18%</span>
                                                     Increase</p>
                                             </div>
@@ -91,7 +116,7 @@
                                         <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 pr-0 pt-3">
                                             <div class="card-content">
                                                 <h5 class="font-15">Total Fares</h5>
-                                                <h2 class="mb-3 font-18">$48,697</h2>
+                                                <h2 class="mb-3 font-18">Tk.<?php echo $total_airfares; ?></h2>
                                                 <p class="mb-0"><span class="col-green">42%</span> Increase</p>
                                             </div>
                                         </div>

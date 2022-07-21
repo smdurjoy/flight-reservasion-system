@@ -28,7 +28,7 @@
                                     <div class="col-md-4">
                                         <div class="form-group">
                                             <label for="country">Country</label>
-                                            <select class="form-control select2" id="country" name="country_id">
+                                            <select class="form-control select2" id="country" name="country_id" required>
                                                 <?php
                                                 $sql = "SELECT * FROM countries";
                                                 $result = mysqli_query($conn, $sql);
@@ -45,44 +45,44 @@
                                     <div class="col-md-4">
                                         <div class="form-group">
                                             <label for="state">State</label>
-                                            <select class="form-control select2" id="state" name="state_id">
+                                            <select class="form-control select2" id="state" name="state_id" required>
                                             </select>
                                         </div>
                                     </div>
                                     <div class="col-md-4">
                                         <div class="form-group">
                                             <label for="name">Name</label>
-                                            <input type="text" class="form-control" id="name" name="name">
+                                            <input type="text" class="form-control" id="name" name="name" required>
                                         </div>
                                     </div>
                                     <div class="col-md-4">
                                         <div class="form-group">
                                             <label for="address">Address</label>
-                                            <input type="text" class="form-control" id="address" name="address">
+                                            <input type="text" class="form-control" id="address" name="address" required>
                                         </div>
                                     </div>
                                     <div class="col-md-4">
                                         <div class="form-group">
                                             <label for="nationality">Nationality</label>
-                                            <input type="text" class="form-control" id="nationality" name="nationality">
+                                            <input type="text" class="form-control" id="nationality" name="nationality" required>
                                         </div>
                                     </div>
                                     <div class="col-md-4">
                                         <div class="form-group">
                                             <label for="email">Email</label>
-                                            <input type="email" class="form-control" id="email" name="email">
+                                            <input type="email" class="form-control" id="email" name="email" required>
                                         </div>
                                     </div>
                                     <div class="col-md-4">
                                         <div class="form-group">
                                             <label for="mobile">Phone</label>
-                                            <input type="number" class="form-control" id="mobile" name="mobile">
+                                            <input type="number" class="form-control" id="mobile" name="mobile" required>
                                         </div>
                                     </div>
                                     <div class="col-md-4">
                                         <div class="form-group">
                                             <label for="age">Age</label>
-                                            <input type="text" class="form-control" id="age" name="age">
+                                            <input type="text" class="form-control" id="age" name="age" required>
                                         </div>
                                     </div>
 
