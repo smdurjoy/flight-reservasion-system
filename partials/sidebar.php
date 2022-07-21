@@ -11,20 +11,24 @@
             <li class="dropdown <?= ($activePage == 'index') ? 'active' : ''; ?>">
                 <a href="index.php" class="nav-link"><i data-feather="monitor"></i><span>Dashboard</span></a>
             </li>
-            <li class="dropdown <?= ($activePage == 'aircraft') ? 'active' : ''; ?>">
-                <a href="aircraft.php" class="nav-link"><i data-feather="monitor"></i><span>Aircraft</span></a>
-            </li>
+
             <?php
             $activeFlightDropdown = false;
 
-            if ($activePage == 'flightList' || $activePage == 'flightListRouteWise') {
+            if ($activePage == 'flightList' || $activePage == 'flightListRouteWise' || $activePage == 'newFlight') {
                 $activeFlightDropdown = true;
             }
             ?>
             <li class="dropdown <?= $activeFlightDropdown ? 'active' : ''; ?>">
-                <a href="#" class="menu-toggle nav-link has-dropdown"><i data-feather="copy"></i>
+                <a href="#" class="menu-toggle nav-link has-dropdown">
+                    <i class="fa fa-plane"></i>
                     <span>Flight</span></a>
                 <ul class="dropdown-menu">
+                    <li class="<?= ($activePage == 'newFlight') ? 'active' : ''; ?>">
+                        <a class="nav-link" href="newFlight.php">
+                            New Flight
+                        </a>
+                    </li>
                     <li class="<?= ($activePage == 'flightList') ? 'active' : ''; ?>">
                         <a class="nav-link" href="flightList.php">
                             Flight List
@@ -46,7 +50,8 @@
             }
             ?>
             <li class="dropdown <?= $activeTicketsDropdown ? 'active' : ''; ?>">
-                <a href="#" class="menu-toggle nav-link has-dropdown"><i data-feather="copy"></i>
+                <a href="#" class="menu-toggle nav-link has-dropdown">
+                    <i class="fa fa-ticket-alt"></i>
                     <span>Tickets</span></a>
                 <ul class="dropdown-menu">
                     <li class="<?= ($activePage == 'dateWiseTickets') ? 'active' : ''; ?>">
@@ -64,7 +69,7 @@
 
             <?php
             $activePassengersDropdown = false;
-            if ($activePage == 'routeWisePassengers' || $activePage == 'stateWisePassengers' || $activePage == 'flightPassengers') {
+            if ($activePage == 'routeWisePassengers' || $activePage == 'stateWisePassengers' || $activePage == 'flightPassengers' || $activePage == 'newPassenger' || $activePage == 'passengerList') {
                 $activePassengersDropdown = true;
             }
             ?>
@@ -72,6 +77,16 @@
                 <a href="#" class="menu-toggle nav-link has-dropdown"><i class="fa fa-user-circle"></i>
                     <span>Passengers</span></a>
                 <ul class="dropdown-menu">
+                    <li class="<?= ($activePage == 'passengerList') ? 'active' : ''; ?>">
+                        <a class="nav-link" href="passengerList.php">
+                            Passengers List
+                        </a>
+                    </li>
+                    <li class="<?= ($activePage == 'newPassenger') ? 'active' : ''; ?>">
+                        <a class="nav-link" href="newPassenger.php">
+                            New Passenger
+                        </a>
+                    </li>
                     <li class="<?= ($activePage == 'routeWisePassengers') ? 'active' : ''; ?>">
                         <a class="nav-link" href="routeWisePassengers.php">
                             Route Wise
