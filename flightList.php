@@ -38,6 +38,7 @@
                                             <th>Type</th>
                                             <th>Capacity</th>
                                             <th>MFG Date</th>
+                                            <th></th>
                                         </tr>
                                         </thead>
                                         <tbody>
@@ -52,6 +53,7 @@
                                             echo "<td>" . $row['type'] . "</td>";
                                             echo "<td>" . $row['capacity'] . "</td>";
                                             echo "<td>" . $row['mfg_date'] . "</td>";
+                                            echo "<td><a href='editFlight.php?id=".$row['id']."'><i class='fa fa-edit'></i></a></td>";
                                             echo "</tr>";
                                             $std_num++;
                                         }
