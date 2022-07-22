@@ -24,14 +24,14 @@
                     <i class="fa fa-plane"></i>
                     <span>Flight</span></a>
                 <ul class="dropdown-menu">
+                    <li class="<?= ($activePage == 'flightList') ? 'active' : ''; ?>">
+                        <a class="nav-link" href="flightList.php">
+                            All Flights
+                        </a>
+                    </li>
                     <li class="<?= ($activePage == 'newFlight') ? 'active' : ''; ?>">
                         <a class="nav-link" href="newFlight.php">
                             New Flight
-                        </a>
-                    </li>
-                    <li class="<?= ($activePage == 'flightList') ? 'active' : ''; ?>">
-                        <a class="nav-link" href="flightList.php">
-                            Flight List
                         </a>
                     </li>
                     <li class="<?= ($activePage == 'flightListRouteWise') ? 'active' : ''; ?>">
@@ -45,7 +45,7 @@
             <?php
             $activeTicketsDropdown = false;
 
-            if ($activePage == 'ticketsInfo' || $activePage == 'dateWiseTickets' || $activePage == 'stateWiseTickets') {
+            if ($activePage == 'ticketsInfo' || $activePage == 'dateWiseTickets' || $activePage == 'stateWiseTickets' || $activePage == 'newTicket' || $activePage == 'ticketsList') {
                 $activeTicketsDropdown = true;
             }
             ?>
@@ -54,6 +54,16 @@
                     <i class="fa fa-ticket-alt"></i>
                     <span>Tickets</span></a>
                 <ul class="dropdown-menu">
+                    <li class="<?= ($activePage == 'ticketsList') ? 'active' : ''; ?>">
+                        <a class="nav-link" href="ticketsList.php">
+                            All Tickets
+                        </a>
+                    </li>
+                    <li class="<?= ($activePage == 'newTicket') ? 'active' : ''; ?>">
+                        <a class="nav-link" href="newTicket.php">
+                            New Ticket
+                        </a>
+                    </li>
                     <li class="<?= ($activePage == 'dateWiseTickets') ? 'active' : ''; ?>">
                         <a class="nav-link" href="dateWiseTickets.php">
                             Date Wise Tickets
@@ -79,7 +89,7 @@
                 <ul class="dropdown-menu">
                     <li class="<?= ($activePage == 'passengerList') ? 'active' : ''; ?>">
                         <a class="nav-link" href="passengerList.php">
-                            Passengers List
+                            All Passengers
                         </a>
                     </li>
                     <li class="<?= ($activePage == 'newPassenger') ? 'active' : ''; ?>">
