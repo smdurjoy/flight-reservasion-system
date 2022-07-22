@@ -2,6 +2,7 @@
 <html lang="en">
 
 <?php include 'partials/head.html'; ?>
+<?php include 'backend/loginCheck.php'; ?>
 
 <body>
 <div class="loader"></div>

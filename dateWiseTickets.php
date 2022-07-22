@@ -2,6 +2,7 @@
 <html lang="en">
 
 <?php include 'partials/head.html'; ?>
+
 <link rel="stylesheet" href="assets/bundles/datatables/datatables.min.css">
 <link rel="stylesheet" href="assets/bundles/datatables/DataTables-1.10.16/css/dataTables.bootstrap4.min.css">
 <link rel="stylesheet" href="assets/bundles/bootstrap-daterangepicker/daterangepicker.css">
@@ -11,6 +12,7 @@
     <div class="main-wrapper main-wrapper-1">
 
         <?php require_once 'backend/connection.php'; ?>
+        <?php include 'backend/loginCheck.php'; ?>
         <?php include 'partials/navbar.html'; ?>
 
         <?php include 'partials/sidebar.php'; ?>

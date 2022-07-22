@@ -10,6 +10,7 @@
     <div class="main-wrapper main-wrapper-1">
 
         <?php require_once 'backend/connection.php'; ?>
+        <?php include 'backend/loginCheck.php'; ?>
         <?php include 'partials/navbar.html'; ?>
 
         <?php include 'partials/sidebar.php'; ?>
