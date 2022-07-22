@@ -34,6 +34,7 @@
                                         <thead>
                                         <tr>
                                             <th>SL</th>
+                                            <th>Ticket No</th>
                                             <th>Passenger Id</th>
                                             <th>Passenger Name</th>
                                             <th>Booking Date</th>
@@ -45,7 +46,8 @@
                                         </thead>
                                         <tbody>
                                         <?php
-                                        $sql = "SELECT * FROM transactions
+                                        $sql = "SELECT transactions.id as ticket_no, passenger_id, name, booking_date, airport, destination, route_code, type
+                                                FROM transactions
                                                 JOIN passengers ON transactions.passenger_id = passengers.id
                                                 JOIN aircrafts ON transactions.aircraft_id = aircrafts.id
                                                 JOIN routes ON transactions.route_id = routes.id
@@ -57,6 +59,7 @@
                                         while ($row = mysqli_fetch_array($result, MYSQLI_ASSOC)) {
                                             echo "<tr>";
                                             echo "<td>" . $std_num . "</td>";
+                                            echo "<td>" . str_pad($row['ticket_no'], 6, "0", STR_PAD_LEFT) . "</td>";
                                             echo "<td>" . $row['passenger_id'] . "</td>";
                                             echo "<td>" . $row['name'] . "</td>";
                                             echo "<td>" . $row['booking_date'] . "</td>";

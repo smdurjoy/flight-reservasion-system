@@ -34,7 +34,7 @@
                     $row = mysqli_fetch_array($result, MYSQLI_ASSOC);
                     $total_transactions = $row['total_transactions'];
 
-                    $sqlAirfares = "SELECT COUNT(id) as total_airfares FROM airfares";
+                    $sqlAirfares = "SELECT SUM(fare) as total_airfares FROM airfares";
                     $result = mysqli_query($conn, $sqlAirfares);
                     $row = mysqli_fetch_array($result, MYSQLI_ASSOC);
                     $total_airfares = $row['total_airfares'];

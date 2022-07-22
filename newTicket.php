@@ -59,18 +59,8 @@
                                     </div>
                                     <div class="col-md-3">
                                         <div class="form-group">
-                                            <label for="aircraft_id">Select Aircraft</label>
-                                            <select class="form-control select2" id="aircraft_id" name="aircraft_id" required>
-                                                <?php
-                                                $sql = "SELECT * FROM aircrafts";
-                                                $result = mysqli_query($conn, $sql);
-
-                                                while ($row = mysqli_fetch_array($result, MYSQLI_ASSOC)) {
-                                                    echo "<option value='".$row['id']."'>" . $row['type'] . "</option>";
-                                                }
-
-                                                $conn->close();
-                                                ?>
+                                            <label for="aircraft">Select Aircraft</label>
+                                            <select class="form-control select2" id="aircraft" name="aircraft_id" required>
                                             </select>
                                         </div>
                                     </div>
@@ -107,6 +97,37 @@
 <script src="assets/bundles/jquery-selectric/jquery.selectric.min.js"></script>
 
 <script>
+    $(document).ready(function () {
+        fetchFlights();
+    });
+
+    $(document).on('change', '#route', function () {
+        fetchFlights();
+    });
+
+    function fetchFlights() {
+        const routeId = $('#route').val();
+        $.ajax({
+            method: 'GET',
+            url: 'backend/routeWiseFlightFilter.php',
+            data: {routeId},
+            success: function (res) {
+                const response = JSON.parse(res);
+                const len = response.length;
+                $('#aircraft').empty();
+                if (len) {
+                    for (let i=0; i<len; i++) {
+                        const op_str = "<option value='"+response[i].aircraft_id+"'>" + response[i].type + "</option>"
+                        $("#aircraft").append(op_str);
+                    }
+                }
+            },
+            error: function (error) {
+                alert('Something Went Wrong!');
+            }
+        })
+    }
+
     $(document).on('submit', '#newTicketForm', function (e) {
         e.preventDefault();
         const data = new FormData(e.target);

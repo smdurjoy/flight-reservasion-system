@@ -46,11 +46,20 @@
                                         </div>
                                     </div>
 
-                                    <div class="col-md-6">
+                                    <div class="col-md-12">
+                                        <h5 id="totalPassengerMsg" class="d-none"></h5>
                                         <table class="table table-striped table-hover d-none" id="totalTicketsTable">
                                             <thead>
                                             <tr>
-                                                <th>Total Tickets Sale</th>
+                                                <th>SL</th>
+                                                <th>Ticket No</th>
+                                                <th>Passenger Id</th>
+                                                <th>Passenger Name</th>
+                                                <th>Booking Date</th>
+                                                <th>From</th>
+                                                <th>Destination</th>
+                                                <th>Route Code</th>
+                                                <th>Flight</th>
                                             </tr>
                                             </thead>
                                             <tbody>
@@ -88,12 +97,23 @@
                 $("#totalTicketsTable tbody").empty();
                 const response = JSON.parse(res);
                 const len = response.length;
+                $("#totalPassengerMsg").removeClass('d-none').text('Total Tickets: '+len);
                 if (len) {
-                    const tr_str = "<tr>" +
-                        "<td>" + response[0].total_tickets + "</td>" +
-                        "</tr>";
+                    for (let i=0; i<len; i++) {
+                        const tr_str = "<tr>" +
+                            "<td>" + (i+1) + "</td>" +
+                            "<td>" + response[i].ticket_no + "</td>" +
+                            "<td>" + response[i].passenger_id + "</td>" +
+                            "<td>" + response[i].name + "</td>" +
+                            "<td>" + response[i].booking_date + "</td>" +
+                            "<td>" + response[i].airport + "</td>" +
+                            "<td>" + response[i].destination + "</td>" +
+                            "<td>" + response[i].route_code + "</td>" +
+                            "<td>" + response[i].type + "</td>" +
+                            "</tr>";
 
-                    $("#totalTicketsTable tbody").append(tr_str);
+                        $("#totalTicketsTable tbody").append(tr_str);
+                    }
                 }
             },
             error: function (error) {
