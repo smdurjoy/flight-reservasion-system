@@ -65,11 +65,18 @@
                                         </div>
                                     </div>
 
-                                    <div class="col-md-6">
+                                    <div class="col-md-12">
+                                        <h5 id="totalPassengerMsg" class="d-none"></h5>
                                         <table class="table table-striped table-hover d-none" id="routeWisePassengersTable">
                                             <thead>
                                             <tr>
-                                                <th>Total Passengers</th>
+                                                <th>SL</th>
+                                                <th>Passenger Id</th>
+                                                <th>Name</th>
+                                                <th>Age</th>
+                                                <th>Mobile</th>
+                                                <th>Address</th>
+                                                <th>Nationality</th>
                                             </tr>
                                             </thead>
                                             <tbody>
@@ -110,12 +117,21 @@
                 $("#routeWisePassengersTable tbody").empty();
                 const response = JSON.parse(res);
                 const len = response.length;
+                $("#totalPassengerMsg").removeClass('d-none').text('Total Passengers: '+len);
                 if (len) {
-                    const tr_str = "<tr>" +
-                        "<td>" + response[0].total_passengers + "</td>" +
-                        "</tr>";
+                    for (let i=0; i<len; i++) {
+                        const tr_str = "<tr>" +
+                            "<td>" + (i+1) + "</td>" +
+                            "<td>" + response[i].passenger_id + "</td>" +
+                            "<td>" + response[i].name + "</td>" +
+                            "<td>" + response[i].age + "</td>" +
+                            "<td>" + response[i].mobile + "</td>" +
+                            "<td>" + response[i].address + "</td>" +
+                            "<td>" + response[i].nationality + "</td>" +
+                            "</tr>";
 
-                    $("#routeWisePassengersTable tbody").append(tr_str);
+                        $("#routeWisePassengersTable tbody").append(tr_str);
+                    }
                 }
             },
             error: function (error) {

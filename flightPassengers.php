@@ -53,6 +53,7 @@
                                     </div>
 
                                     <div class="col-md-12">
+                                        <h5 id="totalPassengerMsg" class="d-none"></h5>
                                         <table class="table table-striped table-hover d-none" style="width:100%;" id="flightPassengerListTable">
                                             <thead>
                                             <tr>
@@ -99,6 +100,7 @@
                 $("#flightPassengerListTable tbody").empty();
                 const response = JSON.parse(res);
                 const len = response.length;
+                $("#totalPassengerMsg").removeClass('d-none').text('Total Passengers: '+len);
                 if (len) {
                     for (let i=0; i<len; i++) {
                         const tr_str = "<tr>" +

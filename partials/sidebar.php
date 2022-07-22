@@ -89,7 +89,7 @@
                     </li>
                     <li class="<?= ($activePage == 'routeWisePassengers') ? 'active' : ''; ?>">
                         <a class="nav-link" href="routeWisePassengers.php">
-                            Route Wise
+                            Route & Date Wise
                         </a>
                     </li>
                     <li class="<?= ($activePage == 'stateWisePassengers') ? 'active' : ''; ?>">

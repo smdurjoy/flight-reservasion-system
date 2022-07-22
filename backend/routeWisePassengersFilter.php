@@ -6,23 +6,28 @@ $routeId = $_POST['routeId'];
 $fromDate = $_POST['fromDate'];
 $toDate = $_POST['toDate'];
 
-$sql = "SELECT COUNT(transactions.id) as total_passengers FROM aircrafts, airfares, flight_schedules, transactions
-        WHERE flight_schedules.aircraft_id = aircrafts.id
-        AND flight_schedules.airfare_id = airfares.id
-        AND transactions.aircraft_id = aircrafts.id
-        AND airfares.route_id = '$routeId'
-        AND flight_schedules.flight_date BETWEEN '$fromDate' AND '$toDate';";
+$sql = "SELECT * FROM transactions
+        JOIN passengers on transactions.passenger_id = passengers.id
+        JOIN contacts on passengers.contact_id = contacts.id
+        WHERE route_id = '$routeId'
+        AND booking_date BETWEEN '$fromDate' AND '$toDate'";
 
 $result = mysqli_query($conn, $sql);
 
 $return_arr = array();
 
-if ($result->num_rows > 0) {
+if ($result && $result->num_rows > 0) {
     while ($row = mysqli_fetch_array($result)) {
         $return_arr[] = array(
-            "total_passengers" => $row['total_passengers'],
+            "passenger_id" => $row['passenger_id'],
+            "name" => $row['name'],
+            "age" => $row['age'],
+            "mobile" => $row['mobile'],
+            "address" => $row['address'],
+            "nationality" => $row['nationality'],
         );
     }
+    echo json_encode($return_arr);
+} else {
+    echo "Error: " . $sql . "<br>" . $conn->error;
 }
-
-echo json_encode($return_arr);
