@@ -21,6 +21,7 @@
                     <div class="col-12">
                         <div class="card">
                             <div class="card-header">
+                                <?php if ($_SESSION["role_id"] == 1) { ?>
                                 <div style="display: flex; justify-content: space-between; width: 100%;">
                                     <h4>Flight List</h4>
                                     <a href="newFlight.php" class="btn btn-primary" style="color: white">
@@ -28,6 +29,7 @@
                                         New Flight
                                     </a>
                                 </div>
+                                <?php } ?>
                             </div>
                             <div class="card-body">
                                 <div class="table-responsive">
@@ -53,7 +55,9 @@
                                             echo "<td>" . $row['type'] . "</td>";
                                             echo "<td>" . $row['capacity'] . "</td>";
                                             echo "<td>" . $row['mfg_date'] . "</td>";
-                                            echo "<td><a href='editFlight.php?id=".$row['id']."'><i class='fa fa-edit'></i></a></td>";
+                                            if ($_SESSION["role_id"] == 1) {
+                                                echo "<td><a href='editFlight.php?id=".$row['id']."'><i class='fa fa-edit'></i></a></td>";
+                                            }
                                             echo "</tr>";
                                             $std_num++;
                                         }

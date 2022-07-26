@@ -23,10 +23,12 @@
                             <div class="card-header">
                                 <div style="display: flex; justify-content: space-between; width: 100%;">
                                     <h4>Tickets List</h4>
+                                    <?php if ($_SESSION["role_id"] == 2) { ?>
                                     <a href="newTicket.php" class="btn btn-primary" style="color: white">
                                         <i class="fa fa-plus"></i>
                                         New Ticket
                                     </a>
+                                    <?php } ?>
                                 </div>
                             </div>
                             <div class="card-body">

@@ -29,16 +29,18 @@
                             All Flights
                         </a>
                     </li>
-                    <li class="<?= ($activePage == 'newFlight') ? 'active' : ''; ?>">
-                        <a class="nav-link" href="newFlight.php">
-                            New Flight
-                        </a>
-                    </li>
-                    <li class="<?= ($activePage == 'flightListRouteWise') ? 'active' : ''; ?>">
-                        <a class="nav-link" href="flightListRouteWise.php">
-                            Flight List Route Wise
-                        </a>
-                    </li>
+                    <?php if ($_SESSION["role_id"] == 1) { ?>
+                        <li class="<?= ($activePage == 'newFlight') ? 'active' : ''; ?>">
+                            <a class="nav-link" href="newFlight.php">
+                                New Flight
+                            </a>
+                        </li>
+                        <li class="<?= ($activePage == 'flightListRouteWise') ? 'active' : ''; ?>">
+                            <a class="nav-link" href="flightListRouteWise.php">
+                                Flight List Route Wise
+                            </a>
+                        </li>
+                    <?php } ?>
                 </ul>
             </li>
 
@@ -59,21 +61,25 @@
                             All Tickets
                         </a>
                     </li>
-                    <li class="<?= ($activePage == 'newTicket') ? 'active' : ''; ?>">
-                        <a class="nav-link" href="newTicket.php">
-                            New Ticket
-                        </a>
-                    </li>
-                    <li class="<?= ($activePage == 'dateWiseTickets') ? 'active' : ''; ?>">
-                        <a class="nav-link" href="dateWiseTickets.php">
-                            Date Wise Tickets
-                        </a>
-                    </li>
-                    <li class="<?= ($activePage == 'stateWiseTickets') ? 'active' : ''; ?>">
-                        <a class="nav-link" href="stateWiseTickets.php">
-                            State Wise Tickets
-                        </a>
-                    </li>
+                    <?php if ($_SESSION["role_id"] == 2) { ?>
+                        <li class="<?= ($activePage == 'newTicket') ? 'active' : ''; ?>">
+                            <a class="nav-link" href="newTicket.php">
+                                New Ticket
+                            </a>
+                        </li>
+                    <?php } ?>
+                    <?php if ($_SESSION["role_id"] == 1) { ?>
+                        <li class="<?= ($activePage == 'dateWiseTickets') ? 'active' : ''; ?>">
+                            <a class="nav-link" href="dateWiseTickets.php">
+                                Date Wise Tickets
+                            </a>
+                        </li>
+                        <li class="<?= ($activePage == 'stateWiseTickets') ? 'active' : ''; ?>">
+                            <a class="nav-link" href="stateWiseTickets.php">
+                                State Wise Tickets
+                            </a>
+                        </li>
+                    <?php } ?>
                 </ul>
             </li>
 
@@ -97,21 +103,24 @@
                             New Passenger
                         </a>
                     </li>
-                    <li class="<?= ($activePage == 'routeWisePassengers') ? 'active' : ''; ?>">
-                        <a class="nav-link" href="routeWisePassengers.php">
-                            Route & Date Wise
-                        </a>
-                    </li>
-                    <li class="<?= ($activePage == 'stateWisePassengers') ? 'active' : ''; ?>">
-                        <a class="nav-link" href="stateWisePassengers.php">
-                            State Wise
-                        </a>
-                    </li>
-                    <li class="<?= ($activePage == 'flightPassengers') ? 'active' : ''; ?>">
-                        <a class="nav-link" href="flightPassengers.php">
-                            Flight Wise
-                        </a>
-                    </li>
+
+                    <?php if ($_SESSION["role_id"] == 1) { ?>
+                        <li class="<?= ($activePage == 'routeWisePassengers') ? 'active' : ''; ?>">
+                            <a class="nav-link" href="routeWisePassengers.php">
+                                Route & Date Wise
+                            </a>
+                        </li>
+                        <li class="<?= ($activePage == 'stateWisePassengers') ? 'active' : ''; ?>">
+                            <a class="nav-link" href="stateWisePassengers.php">
+                                State Wise
+                            </a>
+                        </li>
+                        <li class="<?= ($activePage == 'flightPassengers') ? 'active' : ''; ?>">
+                            <a class="nav-link" href="flightPassengers.php">
+                                Flight Wise
+                            </a>
+                        </li>
+                    <?php } ?>
                 </ul>
             </li>
         </ul>
