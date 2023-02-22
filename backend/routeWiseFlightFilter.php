@@ -17,7 +17,8 @@ $return_arr = array();
 if ($result->num_rows > 0) {
     while ($row = mysqli_fetch_array($result)) {
         $return_arr[] = array(
-            "passenger_id" => $row['passenger_id'],
+            "passenger_id" => $row['passenger_id'] ?? '',
+            "aircraft_id" => $row['aircraft_id'] ?? '',
             "type" => $row['type'],
             "flight_date" => $row['flight_date'],
             "departure" => $row['departure'],

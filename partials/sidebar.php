@@ -1,7 +1,7 @@
 <div class="main-sidebar sidebar-style-2">
     <aside id="sidebar-wrapper">
         <div class="sidebar-brand">
-            <a href="index.html">
+            <a href="index.php">
                 <img alt="image" src="assets/img/logo.png" class="header-logo"/>
                 <span class="logo-name">FRS</span>
             </a>
